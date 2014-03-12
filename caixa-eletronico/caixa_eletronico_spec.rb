@@ -38,5 +38,14 @@ describe CaixaEletronico do
       expect(notas).to eq([100,100,50])
     end
    
+    it 'quando passar valor 270 deve devolver 2 notas de 100 e 1 nota de 50 e 1 de vinte' do
+      caixa = CaixaEletronico.new
+      
+      notas = caixa.pagar(270)
+      
+      expect(notas.size).to eq(4)
+      expect(notas).to eq([100,100,50,20])
+    end
+   
   end
 end
