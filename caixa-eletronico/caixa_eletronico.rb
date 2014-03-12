@@ -1,5 +1,8 @@
 class CaixaEletronico
   def pagar(valor)
+    
+    return "Não é possível pagar #{valor}" if valor % 5 > 0
+    
     notas=[100,50,20,10,5]
     
     array = []

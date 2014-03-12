@@ -47,6 +47,15 @@ describe CaixaEletronico do
       expect(notas).to eq([100,100,50,20])
     end
     
+    it 'quando passar valor 250 deve devolver 2 notas de 100 e 1 nota de 50' do
+      caixa = CaixaEletronico.new
+      
+      notas = caixa.pagar(250)
+      
+      expect(notas.size).to eq(3)
+      expect(notas).to eq([100,100,50])
+    end
+    
     it 'quando passar valor 285 deve devolver 2 notas de 100, 1 nota de 50, 1 nota de vinte, 1 de 10 e 1 de 5' do
       caixa = CaixaEletronico.new
       
@@ -54,6 +63,14 @@ describe CaixaEletronico do
       
       expect(notas.size).to eq(6)
       expect(notas).to eq([100,100,50,20,10,5])
+    end
+   
+    it 'quando passar o valor 11, o caixa se recusa a sacar' do
+      caixa = CaixaEletronico.new
+      
+      notas = caixa.pagar(11)
+      
+      expect(notas).to eq('Não é possível pagar 11')
     end
    
   end
